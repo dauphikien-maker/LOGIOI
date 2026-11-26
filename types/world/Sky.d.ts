@@ -31,6 +31,9 @@ export declare class Sky extends THREE.Object3D implements IUpdatable {
      */
     generateEnvironmentMap(renderer: THREE.WebGLRenderer): void;
     setShadowsEnabled(enabled: boolean): void;
+    hasEnvironmentMap(): boolean;
+    applyCachedEnvironmentMap(): void;
+    syncRenderDistanceFog(renderDistance: number): void;
     getRainDebugState(): {
         rainSystem: THREE.LineSegments | null;
         positions: Float32Array | null;
@@ -39,13 +42,11 @@ export declare class Sky extends THREE.Object3D implements IUpdatable {
     };
     update(timeStep: number): void;
     private syncLightingFromWorldTime;
-    private baseFogDensity;
-    private graphicsFogMultiplier;
+    setFogDistanceScale(_mult: number): void;
     private ensureRainSystem;
     private updateRain;
     setRainEnabled(enabled: boolean): void;
     refreshSunPosition(): void;
     refreshHemiIntensity(): void;
-    setFogDistanceScale(mult: number): void;
     setTimeOfDay(preset: 'morning' | 'sunset' | 'night' | 'rain'): void;
 }

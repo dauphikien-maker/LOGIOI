@@ -11,7 +11,7 @@ export declare type InteriorKind = 'bar' | 'casino' | 'bank' | 'museum' | 'jewel
  */
 export declare class InteriorManager {
     private world;
-    private exteriorRoot;
+    exteriorRoot: THREE.Group;
     private interiorRoot;
     private interiorLight;
     private interiorFill;

@@ -62,6 +62,8 @@ export declare class MultiplayerManager {
     private sendAccum;
     private progressSaveAccum;
     private projVec;
+    private tmpSeatPos;
+    private tmpSeatOffsetUp;
     constructor(world: World);
     private parseInviteFromUrl;
     private extractRoomCode;
@@ -112,6 +114,9 @@ export declare class MultiplayerManager {
     private handleRemoteWeaponFire;
     private syncRoomPlayersList;
     private upsertRemotePlayer;
+    private findVehicleByNetworkId;
+    private findOrCreateNetworkVehicle;
+    private releaseRemoteDriverVehicle;
     private attachRemoteVehicleVisual;
     private spawnRemoteAvatar;
     private buildRemoteWeaponProps;

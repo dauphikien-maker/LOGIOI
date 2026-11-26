@@ -10,6 +10,7 @@ export declare class CameraOperator implements IInputReceiver, IUpdatable {
     camera: THREE.Camera;
     target: THREE.Vector3;
     sensitivity: THREE.Vector2;
+    touchSensitivity: number;
     radius: number;
     theta: number;
     phi: number;
@@ -32,6 +33,10 @@ export declare class CameraOperator implements IInputReceiver, IUpdatable {
     setSensitivity(sensitivityX: number, sensitivityY?: number): void;
     setRadius(value: number, instantly?: boolean): void;
     move(deltaX: number, deltaY: number): void;
+    /**
+     * Dedicated responsive touch-swipe camera rotation using radian-scaled touchSensitivity (~4.5x faster than raw mouse scaling).
+     */
+    moveTouch(deltaX: number, deltaY: number): void;
     resetSmoothing(): void;
     update(timeScale: number, unscaledTimeStep?: number): void;
     handleKeyboardEvent(event: KeyboardEvent, code: string, pressed: boolean): void;

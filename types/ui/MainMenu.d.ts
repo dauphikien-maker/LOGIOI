@@ -1,6 +1,7 @@
 import { World } from '../world/World';
 export interface MainMenuSettings {
     graphicsQuality: string;
+    renderDistance: number;
     shadows: boolean;
     bloom: boolean;
     targetFps: 30 | 60;
@@ -39,6 +40,7 @@ export declare class MainMenu {
     private openSettings;
     private closeSettings;
     syncGraphicsQualityUI(quality: string): void;
+    syncRenderDistanceUI(distance: number): void;
     private applySettings;
     isMenuVisible(): boolean;
     hideMenuForMultiplayer(): void;

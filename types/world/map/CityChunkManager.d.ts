@@ -14,6 +14,7 @@ export declare class CityChunkManager {
     private detailProps;
     private chunkCache;
     private activeVisualKeys;
+    private visibleDetailKeys;
     private activePhysicsKeys;
     private seafloorBody;
     private lastPlayerCX;
@@ -37,6 +38,11 @@ export declare class CityChunkManager {
     getActivePhysicsChunkCount(): number;
     update(): void;
     private updateStreamingWindow;
+    /**
+     * Periodic Distance Culling for loaded chunks: hides buildings/foliage/props beyond renderDistance
+     * while preserving ALL ground/road/terrain surfaces and Cannon.js colliders intact.
+     */
+    updateDistanceCulling(px: number, pz: number, renderDistance: number, forceSyncDetails?: boolean): void;
     setNightEmissive(isNight: boolean): void;
     getDetailProps(): StreetDetailProps;
     /**

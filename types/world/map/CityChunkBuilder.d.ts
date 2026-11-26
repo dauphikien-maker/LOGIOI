@@ -6,6 +6,7 @@ export interface BuiltChunkData {
     cz: number;
     key: string;
     visualGroup: THREE.Group;
+    cullableMeshes: THREE.Mesh[];
     detailPlacements: ChunkDetailPlacements;
     doorClearZones: Array<{
         x: number;

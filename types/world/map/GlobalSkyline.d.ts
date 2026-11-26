@@ -9,14 +9,17 @@ import * as THREE from 'three';
 export declare class GlobalSkyline {
     root: THREE.Group;
     private chunkTowerMeshes;
+    private activeLoadedChunks;
+    private tvTower;
     constructor(scene: THREE.Scene);
     private pushColoredBox;
     private buildOceanWater;
     private buildDistantIslandFloorAndSkyline;
     private buildMountainAndTVTower;
     /**
-     * Hide low-detail distant Downtown skyline proxy boxes inside currently loaded detailed 5x5 chunks
-     * so flat blue blocks never collide with detailed textured buildings.
+     * Hide low-detail distant Downtown skyline proxy boxes inside currently loaded detailed chunks
+     * AND beyond Render Distance so far off-screen skyline cores aren't drawn unnecessarily.
      */
     setActiveLoadedChunks(activeChunkKeys: Set<string>): void;
+    updateDistanceCulling(px: number, pz: number, renderDistance: number): void;
 }

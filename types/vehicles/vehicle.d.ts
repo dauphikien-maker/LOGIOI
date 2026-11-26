@@ -48,6 +48,17 @@ export declare abstract class Vehicle extends THREE.Object3D implements IWorldEn
     protected sirenTimer: number;
     protected beaconRedMeshes: THREE.Mesh[];
     protected beaconBlueMeshes: THREE.Mesh[];
+    networkVehicleId: string;
+    remoteControlled: boolean;
+    remoteOccupiedSeats: Map<number, string>;
+    remoteOccupantNames: Map<number, string>;
+    protected baseMass: number;
+    protected autoStopTimer: number;
+    private remoteTargetPos;
+    private remoteTargetQuat;
+    private remotePoseInit;
+    private preStepDetached;
+    private remoteWheelSpin;
     private firstPerson;
     private static tmpCamVec;
     private static tmpPhysPos;
@@ -57,9 +68,21 @@ export declare abstract class Vehicle extends THREE.Object3D implements IWorldEn
     private static tmpDeltaQuat;
     private static tmpWheelPos;
     private static tmpWheelQuat;
+    private static tmpRemoteSpinQuat;
+    private static tmpRemoteAxisX;
     constructor(gltf: any, handlingSetup?: any);
     noDirectionPressed(): boolean;
     update(timeStep: number): void;
+    private updateBeaconStrobe;
+    normalizeSeatIndices(): void;
+    isSeatOccupied(seatIdx: number, ignoreChar?: Character): boolean;
+    hasAvailableSeat(ignoreChar?: Character): boolean;
+    selectEntrySeat(wantsToDrive: boolean, ignoreChar?: Character): {
+        seat: VehicleSeat | null;
+        full: boolean;
+    };
+    applyRemotePose(tx: number, ty: number, tz: number, qx: number, qy: number, qz: number, qw: number): void;
+    setRemoteControlled(remote: boolean, brakeOnRelease?: boolean): void;
     forceCharacterOut(): void;
     onInputChange(): void;
     resetControls(): void;
@@ -97,5 +120,5 @@ export declare abstract class Vehicle extends THREE.Object3D implements IWorldEn
     refillFuel(amount?: number): number;
     protected consumeFuel(timeStep: number, throttlePressed: boolean, speedMs: number): void;
     getTuningMultiplier(): number;
-    private connectSeats;
+    protected connectSeats(): void;
 }

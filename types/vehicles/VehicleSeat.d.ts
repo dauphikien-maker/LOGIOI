@@ -8,6 +8,7 @@ export declare class VehicleSeat {
     seatPointObject: THREE.Object3D;
     connectedSeatsString: string;
     connectedSeats: VehicleSeat[];
+    seatIndex: number;
     type: SeatType;
     entryPoints: THREE.Object3D[];
     door: VehicleDoor;
