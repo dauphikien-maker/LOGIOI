@@ -1,0 +1,50 @@
+import * as CANNON from 'cannon';
+import { Vehicle } from './Vehicle';
+import { IControllable } from '../interfaces/IControllable';
+import { World } from '../world/World';
+import { EntityType } from '../enums/EntityType';
+export interface MotorbikeSpec {
+    id: string;
+    displayName: string;
+    topSpeedForward: number;
+    engineForce: number;
+    brakeForce: number;
+    maxSteerAngle: number;
+    maxLeanAngle: number;
+    mass: number;
+}
+export declare const MOTORBIKE_SPECS: Record<string, MotorbikeSpec>;
+export declare class Motorbike extends Vehicle implements IControllable {
+    entityType: EntityType;
+    drive: string;
+    spec: MotorbikeSpec;
+    get speed(): number;
+    private _speed;
+    private steeringSimulator;
+    private currentSteer;
+    private currentLean;
+    private characterWantsToExit;
+    private fuelWarnCooldown;
+    private leanPivot;
+    private handlebars;
+    private static tmpUpWorld;
+    private static tmpWorldUp;
+    private static tmpCorrection;
+    private static tmpInvQuat;
+    private static tmpLocalCorr;
+    private static tmpLocalAngVel;
+    private static tmpFwd;
+    private static tmpVel;
+    private static tmpLeanQuat;
+    private static tmpAxisZ;
+    constructor(gltf: any, spec?: MotorbikeSpec);
+    private readMotorbikeData;
+    noDirectionPressed(): boolean;
+    update(timeStep: number): void;
+    physicsPreStep(body: CANNON.Body, bike: Motorbike): void;
+    onInputChange(): void;
+    handleKeyboardEvent(event: KeyboardEvent, code: string, pressed: boolean): void;
+    inputReceiverInit(): void;
+    addToWorld(world: World): void;
+    removeFromWorld(world: World): void;
+}
