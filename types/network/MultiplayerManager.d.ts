@@ -127,7 +127,6 @@ export declare class MultiplayerManager {
     update(timeStep: number): void;
     private lerpAngle;
     private pushChatMessage;
-    private getInviteUrl;
     private renderVoicePeersList;
     private updateRoomBarText;
     private renderChatBox;
