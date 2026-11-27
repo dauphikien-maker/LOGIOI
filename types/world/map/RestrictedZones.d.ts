@@ -25,6 +25,7 @@ export declare class RestrictedZones {
     private flashPhase;
     private disposables;
     private readonly K98_BOUNDS;
+    private readonly K98_WALL_BOUNDS;
     private readonly PRISON_BOUNDS;
     constructor(world: World);
     private trackGeo;

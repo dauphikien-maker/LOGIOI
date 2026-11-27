@@ -28,7 +28,6 @@ export declare class HighwayAndTowns {
     private addStaticBox;
     private addStreamedCollider;
     private getHighwayElevation;
-    private buildCurvedHighway;
     private buildLakeTownAndDirtStrip;
     private buildSunsetPierAndFerrisWheel;
     private buildMountainSign;

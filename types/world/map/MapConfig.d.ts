@@ -102,9 +102,8 @@ export declare class MapConfig {
     static isInsideNorthernLake(x: number, z: number): boolean;
     static getZoneAtWorld(x: number, z: number): ZoneType;
     static getZoneNameAt(x: number, z: number): string;
-    private static _cachedCurvePts;
     static getCurvedHighwaySamples(): THREE.Vector2[];
-    static isNearCurvedHighway(x: number, z: number, halfWidth?: number): boolean;
+    static isNearCurvedHighway(_x: number, _z: number, _halfWidth?: number): boolean;
     static isInsidePrisonExclusion(x: number, z: number, margin?: number): boolean;
     /**
      * True only when the containing 160x160 chunk builds dry terrain/decks (prevents NPCs or AI traffic from using Ocean chunks).
@@ -167,6 +166,16 @@ export declare class MapConfig {
         rz: number;
     }>;
     static isInsideKeepout(x: number, z: number, margin?: number): boolean;
+    /**
+     * Driveway mouth & forecourt apron zones where street props (lamps, poles, signs, hydrants) must stay clear.
+     */
+    static readonly DRIVEWAY_KEEPOUTS: Array<{
+        x: number;
+        z: number;
+        rx: number;
+        rz: number;
+    }>;
+    static isInsideDrivewayClearance(x: number, z: number, margin?: number): boolean;
     /**
      * Road drivable filter for AI TrafficSystem (forbids Airport, K-98, Prison, Lake Town, Stadium, Park, Mountain, Ocean).
      */

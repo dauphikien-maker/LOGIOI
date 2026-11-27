@@ -57,13 +57,11 @@ export declare class CityChunkBuilder {
     static buildPhysicsBody(chunk: BuiltChunkData): CANNON.Body | null;
     private static pushGridHeightfieldCollider;
     private static addFlatLandCollider;
-    private static isBoxNearCurvedHighway;
     private static clipExteriorRectangles;
     private static getZoneDefaultRoadHalfWidth;
     private static getEdgeMaxHalfRoadWidth;
     private static addRoadGridForChunk;
     private static populateRoadAndCornerProps;
-    private static addPerimeterHighwayDetails;
     private static addUrbanTree;
     private static addFlowerShrub;
     private static addPalmTree;
