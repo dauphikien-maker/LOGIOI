@@ -18,6 +18,7 @@ export declare class AnimalSystem {
     private rayEnd;
     private rayRes;
     private readonly MAX_DIST;
+    private networkSyncedMode;
     constructor(world: World);
     private initAssets;
     private buildAnimalVisual;
@@ -31,6 +32,7 @@ export declare class AnimalSystem {
         hitPoint?: THREE.Vector3;
     };
     handlePlayerMeleeHit(origin: THREE.Vector3, fwd: THREE.Vector3, range: number, damage: number): void;
+    setClientSyncDisabled(disabled: boolean): void;
     update(timeStep: number): void;
     reset(): void;
     dispose(): void;

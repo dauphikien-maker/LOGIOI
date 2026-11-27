@@ -85,6 +85,7 @@ export declare class WeaponSystem {
     cancelAiming(): void;
     hasDeployedC4(): boolean;
     isPlayerAimingOrFiringGun(): boolean;
+    isAttacking(): boolean;
     grantTemporaryC4(qty: number): void;
     handleKeyDown(code: string): boolean;
     handleMouseButton(code: string, pressed: boolean): void;

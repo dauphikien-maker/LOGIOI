@@ -49,4 +49,9 @@ export declare class Sky extends THREE.Object3D implements IUpdatable {
     refreshSunPosition(): void;
     refreshHemiIntensity(): void;
     setTimeOfDay(preset: 'morning' | 'sunset' | 'night' | 'rain'): void;
+    getWeatherSyncState(): {
+        weather: 'morning' | 'sunset' | 'night' | 'rain';
+        raining: boolean;
+    };
+    applyNetworkSync(worldTimeMinutes: number, weather: 'morning' | 'sunset' | 'night' | 'rain'): void;
 }

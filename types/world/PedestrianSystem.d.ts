@@ -20,6 +20,7 @@ export declare class PedestrianSystem {
     private terrorDarkMat;
     private streetEventTimer;
     private visCheckAccum;
+    private networkSyncedMode;
     private readonly NPC_COUNT;
     private readonly MAX_DISTANCE;
     private static tmpVisPos;
@@ -46,6 +47,11 @@ export declare class PedestrianSystem {
     applyExplosionInRadius(center: THREE.Vector3, radius: number, impulseStrength: number, maxDamage: number): void;
     update(timeStep: number): void;
     private triggerRandomStreetEvent;
+    setClientSyncDisabled(disabled: boolean): void;
+    appendWorldSnapshotNpcs(anchors: Array<{
+        x: number;
+        z: number;
+    }>, radiusSq: number, out: Array<[number, string, number, number, number, number, string, number]>): void;
     clear(): void;
     reset(): void;
 }

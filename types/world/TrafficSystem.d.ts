@@ -4,6 +4,7 @@ import { TrafficVisualResult } from './ProceduralVehicleFactory';
 import { Character } from '../characters/Character';
 import { ParkedVehicleTarget } from './map/StreetDetailProps';
 export interface TrafficAgent {
+    netId: number;
     visual: TrafficVisualResult;
     pos: THREE.Vector2;
     yaw: number;
@@ -53,6 +54,8 @@ export declare class TrafficSystem {
     private smokePuffs;
     private nearestParkedTarget;
     private visCheckAccum;
+    private networkSyncedMode;
+    private static nextNetId;
     private readonly FLEET_SIZE;
     private readonly MAX_DISTANCE_FROM_PLAYER;
     constructor(world: World);
@@ -80,6 +83,11 @@ export declare class TrafficSystem {
     getNearestParkedTarget(pos: THREE.Vector3, maxDist?: number): ParkedVehicleTarget | null;
     tryEnterNearestParked(player: Character): boolean;
     tryHijackNearest(player: Character): boolean;
+    setClientSyncDisabled(disabled: boolean): void;
+    appendWorldSnapshotVehicles(anchors: Array<{
+        x: number;
+        z: number;
+    }>, radiusSq: number, out: Array<[number, string, number, number, number, number, number, number, number, number]>): void;
     clear(): void;
     reset(): void;
 }

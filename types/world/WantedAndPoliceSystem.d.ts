@@ -58,6 +58,7 @@ export declare class WantedAndPoliceSystem {
     private hudAccum;
     private visCheckAccum;
     private losCheckAccum;
+    private networkSyncedMode;
     private static tmpVisPos;
     private static rayStart;
     private static rayEnd;
@@ -134,6 +135,11 @@ export declare class WantedAndPoliceSystem {
     private renderWantedHUD;
     private renderJailHUD;
     private lerpAngle;
+    setClientSyncDisabled(disabled: boolean): void;
+    appendWorldSnapshotUnits(anchors: Array<{
+        x: number;
+        z: number;
+    }>, radiusSq: number, npcsOut: Array<[number, string, number, number, number, number, string, number]>, vehsOut: Array<[number, string, number, number, number, number, number, number, number, number]>): void;
     private clearAllUnits;
     dispose(): void;
 }
