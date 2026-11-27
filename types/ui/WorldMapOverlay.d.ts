@@ -16,6 +16,7 @@ export declare class WorldMapOverlay {
     private selectedTarget;
     private activeFilter;
     private staticPins;
+    private redrawAccum;
     constructor(world: World);
     private initStaticPins;
     private createDOM;
@@ -27,7 +28,7 @@ export declare class WorldMapOverlay {
     isOpen(): boolean;
     show(): void;
     hide(): void;
-    update(): void;
+    update(dt?: number): void;
     private getFilteredPins;
     private drawLiveMap;
     private handleCanvasClick;
