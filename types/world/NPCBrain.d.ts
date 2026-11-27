@@ -110,6 +110,7 @@ export declare class NPCBrain {
      * Chest-level obstacle clearance probe (walls/fences/buildings, vehicles, and water edge < 2m).
      */
     private measureClearanceAhead;
+    private isUnsafeWaterOrVoid;
     private canOccupyWalkable;
     private animateRiflePatrol;
     private animateNPCActivity;

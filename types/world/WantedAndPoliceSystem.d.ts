@@ -79,7 +79,8 @@ export declare class WantedAndPoliceSystem {
     canSurrender(): boolean;
     notifyPlayerAttack(): void;
     /**
-     * Escalates wanted stars gradually with heat threshold & cooldown so stars never spike unfairly.
+     * Escalates wanted stars ONLY (+1★ per escalation up to 5★, with cooldown) when the player
+     * actively commits a new crime — never passively over time, on chase/LOS, or from NPC incidents.
      */
     reportCrime(kind: 'gunshot' | 'assault_npc' | 'kill_npc' | 'hijack' | 'rob_shop' | 'attack_police' | 'chaos' | 'k98_intrude', minStars?: number, label?: string): void;
     private getEscapeDurationForStars;

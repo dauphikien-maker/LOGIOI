@@ -105,6 +105,11 @@ export declare class MapConfig {
     private static _cachedCurvePts;
     static getCurvedHighwaySamples(): THREE.Vector2[];
     static isNearCurvedHighway(x: number, z: number, halfWidth?: number): boolean;
+    static isInsidePrisonExclusion(x: number, z: number, margin?: number): boolean;
+    /**
+     * True only when the containing 160x160 chunk builds dry terrain/decks (prevents NPCs or AI traffic from using Ocean chunks).
+     */
+    static isOnBuiltLand(x: number, z: number): boolean;
     static isCanalWater(x: number, z: number): boolean;
     /**
      * Computes continuous mountain height Y in Vọng Cảnh (including Northern Lake basin

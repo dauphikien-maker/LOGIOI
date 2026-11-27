@@ -44,7 +44,7 @@ export declare class PedestrianSystem {
     hasNearbyNPC(pos: THREE.Vector3, maxDist?: number): boolean;
     applyDamageToAgent(npc: NPCActor, damage: number, impulse: THREE.Vector3, isHeavy: boolean): void;
     notifyDanger(origin: THREE.Vector3, radius: number): void;
-    applyExplosionInRadius(center: THREE.Vector3, radius: number, impulseStrength: number, maxDamage: number): void;
+    applyExplosionInRadius(center: THREE.Vector3, radius: number, impulseStrength: number, maxDamage: number, attackerKind?: 'player' | 'npc'): void;
     update(timeStep: number): void;
     private triggerRandomStreetEvent;
     setClientSyncDisabled(disabled: boolean): void;
