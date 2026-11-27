@@ -44,6 +44,7 @@ import { MobileControls } from '../ui/MobileControls';
 import { CasinoBarUI } from '../ui/CasinoBarUI';
 import { MultiplayerManager } from '../network/MultiplayerManager';
 import { VoiceChatManager } from '../network/VoiceChatManager';
+import { MinimapHUD } from '../ui/MinimapHUD';
 export declare class World {
     renderer: THREE.WebGLRenderer;
     camera: THREE.PerspectiveCamera;
@@ -142,6 +143,7 @@ export declare class World {
     casinoBar: CasinoBarUI;
     multiplayer: MultiplayerManager;
     voiceChat: VoiceChatManager;
+    minimapHud: MinimapHUD;
     player: Character;
     private debugGUI;
     private debugVisible;

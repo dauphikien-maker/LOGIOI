@@ -145,6 +145,15 @@ export declare class MultiplayerManager {
     private getLocalAnimState;
     notifyWeaponFire(start: THREE.Vector3, end: THREE.Vector3, weaponSlot: number, kind: 'bullet' | 'explosion' | 'melee'): void;
     private handleRemoteWeaponFire;
+    getRemotePlayerTargets(): Array<{
+        clientId: string;
+        name: string;
+        pos: THREE.Vector3;
+        inVehicle: boolean;
+    }>;
+    spawnFloatingDamagePopup(worldPos: THREE.Vector3, amount: number): void;
+    notifyPlayerHit(targetId: string, damage: number, knockbackDir: THREE.Vector3, hitPoint?: THREE.Vector3): void;
+    private applyIncomingPvpHit;
     private syncRoomPlayersList;
     private upsertRemotePlayer;
     private findVehicleByNetworkId;
