@@ -52,6 +52,17 @@ export interface NPCActor {
     hitCooldown: number;
     bubbleText: string;
     bubbleTimer: number;
+    combatTargetKind?: 'player' | 'npc';
+    combatTargetNpcId?: number;
+    combatLostSightTimer?: number;
+    brawlSearchCooldown?: number;
+    fleeStuckTimer?: number;
+    fleeStuckRefX?: number;
+    fleeStuckRefZ?: number;
+    evadeSteerTimer?: number;
+    evadeDirX?: number;
+    evadeDirZ?: number;
+    pendingDespawn?: boolean;
 }
 /**
  * Finite State Machine & 3 Personalities for Nam Cang NPCs:
@@ -71,7 +82,14 @@ export declare class NPCBrain {
     private cashBandMat;
     private npcTracers;
     private tracerMat;
+    private agentsRef;
     private static projVec;
+    private static losRayResult;
+    private static losStart;
+    private static losEnd;
+    private static avoidRayResult;
+    private static avoidRayStart;
+    private static avoidRayEnd;
     constructor(world: World);
     private initBubbleLayer;
     static assignPersonality(id: number): {
@@ -81,18 +99,25 @@ export declare class NPCBrain {
     };
     resetActorForSpawn(npc: NPCActor): void;
     say(npc: NPCActor, text: string, duration?: number): void;
-    applyDamage(npc: NPCActor, damage: number, impulse: THREE.Vector3, isHeavy: boolean, dropMultiplier?: number): void;
+    applyDamage(npc: NPCActor, damage: number, impulse: THREE.Vector3, isHeavy: boolean, dropMultiplier?: number, attackerKind?: 'player' | 'npc', attackerNpcId?: number): void;
     triggerThreatResponse(npc: NPCActor, directHit: boolean): void;
     private dropNPCReward;
     spawnCashDrop(x: number, y: number, z: number, amount: number): void;
     private getGroundY;
-    updateGlobalEffects(dt: number): void;
+    updateGlobalEffects(dt: number, agents?: ReadonlyArray<NPCActor>): void;
     updateAgent(npc: NPCActor, dt: number, getWalkable: (x: number, z: number) => boolean, isBlockedAhead?: (x: number, y: number, z: number, dirX: number, dirZ: number, lookAhead?: number) => boolean): void;
+    /**
+     * Chest-level obstacle clearance probe (walls/fences/buildings, vehicles, and water edge < 2m).
+     */
+    private measureClearanceAhead;
     private animateRiflePatrol;
     private animateNPCActivity;
     private checkIncomingCarDodge;
     private checkVehicleImpact;
     private updateKnockedPhysics;
+    private hasLineOfSight;
+    private findNearestLivingNpcTarget;
+    private fireNPCPistolAtNpc;
     private fireNPCPistolAtPlayer;
     private syncGroundAndFacing;
     private animateLocomotion;

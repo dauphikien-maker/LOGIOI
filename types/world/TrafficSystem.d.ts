@@ -29,6 +29,7 @@ export interface TrafficAgent {
     hp: number;
     wrecked: boolean;
     smokeTimer: number;
+    pendingDespawn?: boolean;
 }
 /**
  * Dynamic 15 km2 chunk-relative Traffic System:
@@ -46,10 +47,12 @@ export declare class TrafficSystem {
     private static tmpFwd;
     private static tmpTangent;
     private static tmpPrevPos;
+    private static tmpVisPos;
     private smokeGeo;
     private smokeMat;
     private smokePuffs;
     private nearestParkedTarget;
+    private visCheckAccum;
     private readonly FLEET_SIZE;
     private readonly MAX_DISTANCE_FROM_PLAYER;
     constructor(world: World);

@@ -13,6 +13,7 @@ export declare class MobileControls {
     private pwaInstallBtn;
     private rotateOverlayEl;
     private leftZoneEl;
+    private joyZoneEl;
     private rightTouchAreaEl;
     private joyBaseEl;
     private joyKnobEl;
@@ -21,6 +22,7 @@ export declare class MobileControls {
     private driveClusterEl;
     private btnInteractFootEl;
     private btnInteractDriveEl;
+    private btnFireEl;
     private btnGasEl;
     private btnReverseEl;
     private btnBrakeEl;
@@ -31,6 +33,7 @@ export declare class MobileControls {
     private btnWeaponCycleEl;
     private btnChatEl;
     private btnMicEl;
+    private btnFsEl;
     private enabled;
     private gateBlocking;
     private wasPortraitBlocked;

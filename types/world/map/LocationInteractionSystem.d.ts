@@ -105,6 +105,8 @@ export declare class LocationInteractionSystem {
     handleKeyDown(code: string): boolean;
     private triggerMarker;
     refreshHUDExternal(): void;
+    restoreHUDAndControls(): void;
+    private recoverFromModalError;
     equipOutfitExternal(styleId: OutfitStyleId): void;
     showCustomModal(title: string, bodyHtml: string, onBind: (overlayEl: HTMLElement) => void, onClose?: () => void): void;
     summonSavedVehicleAt(idx: number, x: number, y: number, z: number, yaw: number): void;
@@ -112,6 +114,7 @@ export declare class LocationInteractionSystem {
     private collectSecret;
     getNearbyPlayerVehicle(): Vehicle | null;
     private handleGasAndRepair;
+    private renderBarberModal;
     openModal(kind: string): void;
     closeModal(): void;
     private renderModalContent;

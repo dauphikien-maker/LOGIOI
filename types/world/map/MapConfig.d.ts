@@ -129,6 +129,22 @@ export declare class MapConfig {
      * returns null on dry land, beaches above waterline, and bridges.
      */
     static getWaterLevelAt(x: number, z: number): number | null;
+    /**
+     * Returns true if (x, z) is inside playable water (ocean, canal outside bridges, or mountain lake).
+     */
+    static isWaterAt(x: number, z: number): boolean;
+    /**
+     * Returns true if (x, z) is in water or within `margin` meters of a water boundary.
+     */
+    static isNearWaterEdge(x: number, z: number, margin?: number): boolean;
+    /**
+     * Finds the nearest dry shoreline position safe from water for emergency rescue.
+     */
+    static findNearestShorePosition(x: number, z: number): {
+        x: number;
+        y: number;
+        z: number;
+    };
     static getGroundHeight(x: number, z: number): number;
     static getGroundHeightAt(x: number, z: number): number;
     static getSafeFastTravelPoint(x: number, z: number): {

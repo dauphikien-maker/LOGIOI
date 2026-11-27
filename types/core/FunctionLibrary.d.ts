@@ -46,6 +46,12 @@ export declare function getBack(obj: THREE.Object3D, space?: Space): THREE.Vecto
 export declare function getMatrix(obj: THREE.Object3D, space: Space): THREE.Matrix4;
 export declare function countSleepyBodies(): any;
 export declare function safeRequestPointerLock(el: HTMLElement | null | undefined): void;
+export declare function safeExitPointerLock(): void;
+/**
+ * Stops overlay mouse/wheel/touch events from bubbling into underlying game controls
+ * while preserving native touch scrolling and button clicks inside the popup.
+ */
+export declare function isolateOverlayEvents(el: HTMLElement | null | undefined): void;
 /**
  * Resolves asset paths cleanly for both repo-root deployments (./build/assets/...)
  * and direct build-folder GitHub Pages deployments (./assets/...).

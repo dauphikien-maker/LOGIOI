@@ -37,6 +37,8 @@ export declare abstract class Vehicle extends THREE.Object3D implements IWorldEn
     usesFuel: boolean;
     durability: number;
     maxDurability: number;
+    engineFlooded: boolean;
+    private floodToastShown;
     lastCollisionShockDelta: number;
     private prevVelX;
     private prevVelZ;

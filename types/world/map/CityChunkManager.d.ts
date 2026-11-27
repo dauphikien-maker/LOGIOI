@@ -22,6 +22,7 @@ export declare class CityChunkManager {
     private VISUAL_RADIUS;
     private PHYSICS_RADIUS;
     private readonly MAX_POOL_CHUNKS;
+    private cullKeyCursor;
     setVisualRadius(radius: number): void;
     constructor(world: World);
     getSeafloorBody(): CANNON.Body;

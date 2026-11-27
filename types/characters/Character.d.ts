@@ -87,7 +87,11 @@ export declare class Character extends THREE.Object3D implements IWorldEntity {
     private static tmpUpAxis;
     private static tmpLocalDir;
     private static tmpFlatView;
+    private static blobShadowGeo;
+    private static blobShadowMat;
+    private blobShadowMesh;
     constructor(gltf: any, gender?: PlayerGender);
+    private initBlobShadow;
     private applyGenderStats;
     switchGender(gender: PlayerGender): void;
     syncVisualRigFromBones(): void;
@@ -119,6 +123,7 @@ export declare class Character extends THREE.Object3D implements IWorldEntity {
     takeControl(): void;
     resetControls(): void;
     update(timeStep: number): void;
+    private syncBlobShadow;
     inputReceiverInit(): void;
     displayControls(): void;
     inputReceiverUpdate(timeStep: number): void;

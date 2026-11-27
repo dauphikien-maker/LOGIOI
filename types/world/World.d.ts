@@ -89,10 +89,19 @@ export declare class World {
     private static readonly RENDER_DISTANCE_KEY;
     private static readonly RENDER_DISTANCE_MANUAL_KEY;
     private static tmpPlayerWorldPos;
+    private static tmpVisPoint;
+    private static visFrom;
+    private static visTo;
+    private static visRayResult;
+    private visFrustum;
+    private visProjScreenMatrix;
+    private visFrameCounter;
+    private visUpdatedFrame;
     private cullingAccum;
     private lastCullX;
     private lastCullZ;
     private lastCullDist;
+    private cullCursor;
     private cullableEntries;
     private cullScanDone;
     private startupEvalDone;
@@ -175,6 +184,11 @@ export declare class World {
     setGraphicsQuality(quality: string, fromAuto?: boolean): void;
     private scanCullableEntries;
     updateDistanceCulling(force?: boolean): void;
+    /**
+     * Checks whether a world point is visible to the player's current camera:
+     * within renderDistance, inside the camera view frustum, and not occluded by buildings/walls.
+     */
+    isVisibleToPlayer(position: THREE.Vector3, targetHeightOffset?: number): boolean;
     update(timeStep: number, unscaledTimeStep: number): void;
     updatePhysics(timeStep: number): void;
     isOutOfBounds(position: CANNON.Vec3): boolean;

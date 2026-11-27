@@ -24,6 +24,10 @@ export declare class TaxiDispatchSystem {
     private disposables;
     private billboardFaceMeshes;
     private fadeEl;
+    private pickupCar;
+    private pickupMarker;
+    private pickupArrived;
+    private pickupElapsed;
     constructor(world: World);
     private trackGeo;
     private generateBillboards;
@@ -35,13 +39,23 @@ export declare class TaxiDispatchSystem {
      * Checks whether user's dialed digits match any active billboard Taxi hotline.
      */
     handleDialedNumber(rawDigits: string): boolean;
+    /**
+     * Triggered from PhoneUI "Gọi Taxi": closes Phone cleanly, returns HUD + player controls,
+     * and dispatches an AI Taxi Vạn Lợi car to drive over and pick up the player.
+     */
+    requestTaxiFromPhone(): void;
+    openQuickTaxiMenu(): void;
+    private dispatchTaxiChoice;
+    private clearPickupTaxi;
+    private spawnApproachingPickupTaxi;
+    private updatePickupTaxi;
     static computeRoadRouteFare(fromX: number, fromZ: number, toX: number, toZ: number): {
         distMeters: number;
         fareVND: number;
     };
     private openTaxiDispatchModal;
     private executeMeteredRide;
-    update(): void;
+    update(timeStep?: number): void;
     forceStreamAround(px: number, pz: number): void;
     private updateStreaming;
     dispose(): void;

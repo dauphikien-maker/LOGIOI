@@ -56,6 +56,9 @@ export declare class WantedAndPoliceSystem {
     private bustedBannerEl;
     private jailHudEl;
     private hudAccum;
+    private visCheckAccum;
+    private losCheckAccum;
+    private static tmpVisPos;
     private static rayStart;
     private static rayEnd;
     private static rayRes;
@@ -79,7 +82,8 @@ export declare class WantedAndPoliceSystem {
     reportCrime(kind: 'gunshot' | 'assault_npc' | 'kill_npc' | 'hijack' | 'rob_shop' | 'attack_police' | 'chaos' | 'k98_intrude', minStars?: number, label?: string): void;
     private getEscapeDurationForStars;
     resetOnGameStart(): void;
-    clearWanted(): void;
+    clearWanted(preserveUnitsOffscreen?: boolean): void;
+    private transitionUnitsToCalmPatrol;
     handleKeyDown(code: string): boolean;
     openSurrenderConfirmModal(): void;
     triggerSurrender(): void;
@@ -120,6 +124,7 @@ export declare class WantedAndPoliceSystem {
     private maintainPursuitForces;
     private spawnPursuitVehicle;
     private spawnPursuitOfficer;
+    private updateCalmPatrolLeftovers;
     private updatePursuitVehicles;
     private isVehicleBlockedAhead;
     private updatePursuitOfficers;

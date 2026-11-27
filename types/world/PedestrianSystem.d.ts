@@ -19,8 +19,10 @@ export declare class PedestrianSystem {
     private officeShirtMat;
     private terrorDarkMat;
     private streetEventTimer;
+    private visCheckAccum;
     private readonly NPC_COUNT;
     private readonly MAX_DISTANCE;
+    private static tmpVisPos;
     constructor(world: World);
     private initSharedAssets;
     private buildPedestrianMesh;
@@ -38,6 +40,7 @@ export declare class PedestrianSystem {
     private getSidewalkY;
     private spawnPedestrians;
     getAgents(): ReadonlyArray<NPCActor>;
+    hasNearbyNPC(pos: THREE.Vector3, maxDist?: number): boolean;
     applyDamageToAgent(npc: NPCActor, damage: number, impulse: THREE.Vector3, isHeavy: boolean): void;
     notifyDanger(origin: THREE.Vector3, radius: number): void;
     applyExplosionInRadius(center: THREE.Vector3, radius: number, impulseStrength: number, maxDamage: number): void;

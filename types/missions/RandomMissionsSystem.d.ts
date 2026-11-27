@@ -102,6 +102,9 @@ export declare class RandomMissionsSystem {
     private nextActorId;
     private tracers;
     private tracerMat;
+    private deferredCleanup;
+    private deferredCleanupAccum;
+    private static tmpVisPos;
     constructor(world: World);
     private initAssets;
     private createHUD;
@@ -141,6 +144,7 @@ export declare class RandomMissionsSystem {
     failActiveMission(reason: string): void;
     cancelActiveMission(): void;
     private cleanupActiveEntities;
+    private processDeferredCleanup;
     private spawnTracer;
     private updateTracers;
     private renderHUD;
