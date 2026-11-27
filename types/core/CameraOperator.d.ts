@@ -32,6 +32,8 @@ export declare class CameraOperator implements IInputReceiver, IUpdatable {
     constructor(world: World, camera: THREE.Camera, sensitivityX?: number, sensitivityY?: number);
     setSensitivity(sensitivityX: number, sensitivityY?: number): void;
     setRadius(value: number, instantly?: boolean): void;
+    setClampedRadius(value: number, min?: number, max?: number, instantly?: boolean): number;
+    adjustZoomBy(deltaMeters: number, min?: number, max?: number): number;
     move(deltaX: number, deltaY: number): void;
     /**
      * Dedicated responsive touch-swipe camera rotation using radian-scaled touchSensitivity (~4.5x faster than raw mouse scaling).

@@ -90,6 +90,13 @@ export declare abstract class Vehicle extends THREE.Object3D implements IWorldEn
     resetControls(): void;
     allowSleep(value: boolean): void;
     handleKeyboardEvent(event: KeyboardEvent, code: string, pressed: boolean): void;
+    getDefaultCameraRadius(): number;
+    getCameraTargetHeightOffset(): number;
+    /**
+     * Computes a safe world exit point outside walls/buildings by testing Left -> Right -> Rear -> Front -> Roof
+     * using Cannon raycasts and radial clearance probes.
+     */
+    findSafeExitPosition(ignoreChar?: Character): THREE.Vector3;
     setFirstPersonView(value: boolean): void;
     toggleFirstPersonView(): void;
     triggerAction(actionName: string, value: boolean): void;

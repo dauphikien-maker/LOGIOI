@@ -38,6 +38,7 @@ export declare class WantedAndPoliceSystem {
     private isArrestedState;
     private jailTimer;
     private jailedStars;
+    private lastRenderedJailSec;
     inJail: boolean;
     private vehicles;
     private officers;

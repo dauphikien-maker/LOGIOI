@@ -34,6 +34,7 @@ export declare class MobileControls {
     private btnChatEl;
     private btnMicEl;
     private btnFsEl;
+    private btnCamZoomEl;
     private enabled;
     private gateBlocking;
     private wasPortraitBlocked;
@@ -44,9 +45,12 @@ export declare class MobileControls {
     private joyCenterY;
     private readonly JOY_MAX_R;
     private camTouchId;
+    private camTouches;
+    private lastPinchDist;
     private camLastX;
     private camLastY;
     private touchAimToggle;
+    private vehicleZoomStep;
     private lastInVehicle;
     private lastIsDriver;
     private uiRefreshAccum;

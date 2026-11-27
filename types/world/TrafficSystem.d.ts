@@ -74,6 +74,7 @@ export declare class TrafficSystem {
     private syncVisualTransform;
     private isCorridorClear;
     private computeTargetSpeed;
+    private canOccupyRoadPos;
     private lerpAngle;
     getAgents(): ReadonlyArray<TrafficAgent>;
     getNearestHijackDistance(pos: THREE.Vector3): number;

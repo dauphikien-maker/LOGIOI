@@ -31,6 +31,7 @@ export declare class CivicAndEmergencyBuildings {
     private addShopBox;
     private buildBankBranchesAndShops;
     private buildLakeTownServices;
+    isSolidObstacleAt(x: number, z: number, radius?: number): boolean;
     update(timeStep: number): void;
     forceStreamAround(px: number, pz: number): void;
     private updateStreaming;

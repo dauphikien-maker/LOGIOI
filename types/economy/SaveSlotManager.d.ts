@@ -80,7 +80,10 @@ export declare class SaveSlotManager {
     buildFreshSlotData(slot: 1 | 2 | 3, mapName: string): SingleplayerSaveData;
     collectLiveSnapshot(slot?: 1 | 2 | 3, mapName?: string): SingleplayerSaveData;
     cacheSlotLocally(data: SingleplayerSaveData): void;
+    getMostRecentSlot(): 1 | 2 | 3 | null;
+    loadOrStartLatestWorld(): boolean;
     createNewWorldInSlot(slot: 1 | 2 | 3, mapName: string): Promise<boolean>;
+    exportCurrentWorldData(mapName?: string): SingleplayerSaveData;
     saveActiveWorld(explicitFileSave: boolean): Promise<{
         savedToFile: boolean;
         method: 'fs_api' | 'download' | 'cache';

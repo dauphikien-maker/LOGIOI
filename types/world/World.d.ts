@@ -115,6 +115,14 @@ export declare class World {
     private fpsAccum;
     private fpsSkipAccum;
     private lastShownFps;
+    private isWorldBootstrapped;
+    private isWorldBootloading;
+    private isRenderLoopActive;
+    private renderRafId;
+    private readyCallbacks;
+    private progressCallbacks;
+    private lobbyNoticeEl;
+    private lobbyNoticeTimer;
     inputManager: InputManager;
     cameraOperator: CameraOperator;
     timeScaleTarget: number;
@@ -156,6 +164,11 @@ export declare class World {
     private loadingTipInterval;
     private lastScenarioID;
     constructor(worldScenePath?: any);
+    isWorldReady(): boolean;
+    notifyToast(title: string, msg?: string, durationSec?: number): void;
+    startRenderLoop(): void;
+    stopRenderLoop(): void;
+    ensureWorldReady(onProgress?: (pct: number, stage: string) => void, onDone?: () => void): void;
     private spawnMainPlayer;
     private startLoadingTipsRotation;
     private stopLoadingTipsRotation;
@@ -175,7 +188,7 @@ export declare class World {
     /**
      * Cleanly exits active Singleplayer or P2P Online session back to the Main Menu without reloading the page.
      */
-    exitToMainMenu(): void;
+    exitToMainMenu(skipSave?: boolean): void;
     private activatePlayerControl;
     setShadowsEnabled(enabled: boolean): void;
     setEnvironmentEnabled(enabled: boolean): void;
@@ -235,4 +248,5 @@ export declare class World {
         capsuleHeight: number;
         ok: boolean;
     };
+    isSolidObstacleAt(x: number, z: number, radius?: number): boolean;
 }

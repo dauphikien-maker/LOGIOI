@@ -13,6 +13,13 @@ export declare class MainMenu {
     private menuElement;
     private settingsPanel;
     private slotsPanel;
+    private loadingBoxEl;
+    private loadingStageEl;
+    private loadingPctEl;
+    private loadingFillEl;
+    private loadingTipEl;
+    private loadingTipTimer;
+    private isBootingGame;
     private pauseBtn;
     private isVisible;
     private isPaused;
@@ -28,6 +35,10 @@ export declare class MainMenu {
     private moveSelection;
     private updateSelection;
     private activateItem;
+    beginExternalLoading(stage?: string): void;
+    updateExternalLoading(pct: number, stage: string): void;
+    finishExternalLoading(): void;
+    private beginStartLatestWorld;
     private handleSaveLocalClick;
     private openSingleplayerSlots;
     private closeSingleplayerSlots;
@@ -35,7 +46,7 @@ export declare class MainMenu {
     private startSingleplayer;
     private resumeGame;
     showPauseMenu(): void;
-    returnToMainMenu(): void;
+    returnToMainMenu(skipSave?: boolean): void;
     syncPauseButtonVisibility(): void;
     private openSettings;
     private closeSettings;

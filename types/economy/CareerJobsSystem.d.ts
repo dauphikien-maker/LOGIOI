@@ -36,6 +36,8 @@ export declare class CareerJobsSystem {
     private readonly TRUNK_MAX_KG;
     private passengerMesh;
     private hudEl;
+    private hudCollapsed;
+    private lastHudHtml;
     private shiftVehicle;
     private disposables;
     private streamedColliders;

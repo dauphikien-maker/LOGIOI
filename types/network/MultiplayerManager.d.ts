@@ -27,6 +27,9 @@ export declare class MultiplayerManager {
     private hostRoomPassword;
     private hostSavedClientProgress;
     private hostPendingLoadSave;
+    private hostAutoFreshNewMap;
+    private hostAutoLoadedSave;
+    private lastHostPacketAt;
     private joinTimeoutHandle;
     private gltfLoader;
     private playerName;
@@ -137,6 +140,7 @@ export declare class MultiplayerManager {
     private collectLocalPlayerStateMsg;
     private sanitizePlayerState;
     private buildRoomPlayersList;
+    private loadLatestHostWorldSave;
     private saveHostWorldToLocalStorage;
     private collectServerProgressSnapshot;
     private applyServerProgress;

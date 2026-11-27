@@ -37,6 +37,11 @@ export declare class CityChunkManager {
      */
     forceBuildAround(x: number, z: number): void;
     getActivePhysicsChunkCount(): number;
+    /**
+     * Hard 2D footprint check against solid buildings, houses, fences, walls, and static obstacles
+     * in nearby cached chunks (excluding sidewalk/ground slabs and high overheads).
+     */
+    isSolidObstacleAt(x: number, z: number, radius?: number): boolean;
     update(): void;
     private updateStreamingWindow;
     /**

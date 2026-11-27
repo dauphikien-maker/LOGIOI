@@ -104,6 +104,8 @@ export declare class RandomMissionsSystem {
     private tracerMat;
     private deferredCleanup;
     private deferredCleanupAccum;
+    private hudCollapsed;
+    private lastHudHtml;
     private static tmpVisPos;
     constructor(world: World);
     private initAssets;
