@@ -32,6 +32,10 @@ export declare class RestrictedZones {
     private createWarningSignMat;
     private addBox;
     private addCollider;
+    /**
+     * Single-source-of-truth 1-to-1 helper creating both the Three.js mesh and Cannon collider box.
+     */
+    private addBoxWithCollider;
     private addWatchtower;
     private buildK98Base;
     private buildDamDongPrison;

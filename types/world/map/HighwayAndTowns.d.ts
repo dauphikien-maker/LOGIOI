@@ -27,6 +27,10 @@ export declare class HighwayAndTowns {
     private createCanvasMat;
     private addStaticBox;
     private addStreamedCollider;
+    /**
+     * Single-source-of-truth 1-to-1 helper creating both the Three.js mesh and Cannon collider box.
+     */
+    private addBoxWithCollider;
     private getHighwayElevation;
     private buildLakeTownAndDirtStrip;
     private buildSunsetPierAndFerrisWheel;

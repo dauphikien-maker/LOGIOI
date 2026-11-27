@@ -43,6 +43,10 @@ export declare class SafeHouseSystem {
     private createForSaleSignMat;
     private addBox;
     private addCollider;
+    /**
+     * Single-source-of-truth 1-to-1 helper creating both the Three.js mesh and Cannon collider box.
+     */
+    private addBoxWithCollider;
     private buildAllSafeHouses;
     private registerHouseMarker;
     purchaseHouse(id: string): boolean;

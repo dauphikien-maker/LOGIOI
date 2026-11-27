@@ -23,6 +23,10 @@ export declare class CivicAndEmergencyBuildings {
     private createBarberPoleMat;
     private addStaticBox;
     private addCollider;
+    /**
+     * Single-source-of-truth 1-to-1 helper creating both the Three.js mesh and Cannon collider box.
+     */
+    private addBoxWithCollider;
     private addApronWithRamp;
     private addParkedEmergencyVehicle;
     private buildPoliceStations;

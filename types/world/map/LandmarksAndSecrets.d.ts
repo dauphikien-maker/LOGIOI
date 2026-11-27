@@ -54,6 +54,10 @@ export declare class LandmarksAndSecrets {
      */
     private addPavedLotWithDriveway;
     private addPhysicsBox;
+    /**
+     * Single-source-of-truth 1-to-1 helper creating both the Three.js mesh and Cannon collider box.
+     */
+    private addBoxWithCollider;
     addMarker(id: string, kind: LandmarkKind | 'secret' | 'custom', title: string, promptLabel: string, pos: THREE.Vector3, radius: number, colorHex: number, allowVehicle: boolean, secretIndex?: number, actionTag?: string, payload?: any): InteractionMarker;
     private buildAllLandmarks;
     private buildPortGantryCranes;
