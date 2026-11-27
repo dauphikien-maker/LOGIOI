@@ -44,6 +44,10 @@ export declare class PhoneUI {
     private renderContactsApp;
     private renderDialerApp;
     private executeNumberAction;
+    private callHotline111;
+    private callMedical115;
+    private callPolice113;
+    private callMechanic190;
     private renderClockApp;
     private renderMissionsApp;
     private renderJobsApp;
